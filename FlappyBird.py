@@ -132,7 +132,7 @@ def main():
     count = 0
     gravity = 0
     height = 250
-    jumpfactor = 14
+    jumpfactor = 13
     activation = False
     rotationfactor = 0
     score = 0
@@ -161,7 +161,7 @@ def main():
             rotationfactor = 0
             if jumpfactor == 1:
                 activation = False
-                jumpfactor = 14
+                jumpfactor = 13
                 gravity = 0
 
         elif keys[pygame.K_SPACE] and height >= 0: ###Activates Jump
