@@ -173,6 +173,7 @@ def main():
         result = illustrate(height, activation, rotationfactor, score, count) ###draws the sprites
         if result == True: score += 1
         if result == 'collision': break
+    Introduction()
 
 
 
