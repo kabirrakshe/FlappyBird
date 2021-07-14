@@ -1,6 +1,7 @@
 import pygame
 import random
 
+##This is my Flappy Bird Game! Thanks for watching!!!
 
 pygame.init()
 canvas = pygame.display.set_mode((500,500))
@@ -21,9 +22,6 @@ startbutton = pygame.image.load('startbutton.png')
 bigstartbutton = pygame.transform.scale(pygame.image.load('startbutton.png'), (462,253))
 birdie = pygame.transform.smoothscale(pygame.image.load('birdie.png').convert(), (40,30))
 birdie2 = pygame.transform.smoothscale(pygame.image.load('birdie2.png').convert(), (40,30))
-reset = pygame.transform.smoothscale(pygame.image.load('reset.png'), (200,79))
-setup = pygame.transform.smoothscale(pygame.image.load('Setup.png'), (150,50))
-bigsetup = pygame.transform.smoothscale(pygame.image.load('Setup.png'), (225,75))
 pipe = pygame.image.load('pipe.png').convert()
 pipe2 = pygame.transform.flip(pipe, False, True).convert()
 
@@ -102,7 +100,7 @@ def Introduction():
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: pygame.quit()
-            if event.type == pygame.MOUSEBUTTONDOWN and x in range(40,460) and y in range(135,365): return
+            if event.type == pygame.MOUSEBUTTONDOWN and x in range(40,460) and y in range(135,365): return True
         canvas.blit(bg, (0,0))
         x,y = pygame.mouse.get_pos()
         if x in range(40,460) and y in range(135,365):
@@ -114,17 +112,6 @@ def Introduction():
         pygame.display.update()
         canvas.fill((0,0,0))
 
-# def endingscreen():
-#     while True:
-#         for event in pygame.event.get():
-#             if event.type == pygame.QUIT: pygame.quit()
-#         xx,yy = pygame.mouse.get_pos()
-#         canvas.blit(bg, (0,0))
-#         canvas.blit(setup, (200,200))
-#         canvas.blit(leaderboards, (150,300))
-#         canvas.blit(reset, (0,0))
-#         pygame.display.update()
-#         canvas.fill((0,0,0))
 
 
 
@@ -164,7 +151,7 @@ def main():
                 jumpfactor = 13
                 gravity = 0
 
-        elif keys[pygame.K_SPACE] and height >= 0: ###Activates Jump
+        if keys[pygame.K_SPACE] and height >= 0: ###Activates Jump
             activation = True
             gravity = 0
             rotationfactor = 0
@@ -172,10 +159,10 @@ def main():
 
         result = illustrate(height, activation, rotationfactor, score, count) ###draws the sprites
         if result == True: score += 1
-        if result == 'collision': quit()
-    Introduction()
+        if result == 'collision':
+            quit()
 
-
+##Thanks For Watching!!!!
 
 
 main()
